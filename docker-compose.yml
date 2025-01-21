@@ -81,7 +81,8 @@ services:
       - postgres_data:/var/lib/postgresql/data # Volume to persist database
 
   airflow-init:
-    image: custom-airflow:latest
+    build:
+      context: .
     container_name: airflow-init
     entrypoint: ["bash", "-c"]
     command:
