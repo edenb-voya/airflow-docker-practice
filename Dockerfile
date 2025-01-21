@@ -1,9 +1,15 @@
 # Official Apache Airflow base image
 FROM apache/airflow:2.5.3
 
-# Set environment variables to minimize warnings and ensure compatibility
-ENV AIRFLOW__CORE__EXECUTOR=LocalExecutor
+# Set environment variables
+# Airflow will use the CeleryExecutor for distributed task execution
+ENV AIRFLOW__CORE__EXECUTOR=CeleryExecutor
+# Default Airflow home directory (where logs and configurations are stored)
 ENV AIRFLOW_HOME=/opt/airflow
+# Set the broker URL to use Redis (we'll configure this in docker-compose)
+ENV AIRFLOW__CELERY__BROKER_URL=redis://redis:6379/0
+# Set the result backend to PostgreSQL (we'll configure this in docker-compose)
+ENV AIRFLOW__CELERY__RESULT_BACKEND=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
 
 # Install additional Python libraries and Airflow providers
 RUN pip install --no-cache-dir \
@@ -21,8 +27,8 @@ COPY ./dags /opt/airflow/dags
 # Copy local DAGs to the Airflow directory inside the container
 COPY ./plugins /opt/airflow/plugins
 
+# Initialize the Airflow database and start the webserver
+ENTRYPOINT ["bash", "-c", "airflow db upgrade && exec airflow webserver"]
+
 # Expose port 8080 for the Airflow webserver
 EXPOSE 8080
-
-# Specify the default command to start the Airflow webserver
-CMD ["webserver"]
