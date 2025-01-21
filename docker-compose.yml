@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   airflow-webserver:
     image: custom-airflow:latest # Use the image built with Dockerfile
