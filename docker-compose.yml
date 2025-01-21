@@ -1,6 +1,5 @@
 services:
   airflow-webserver:
-    image: my-custom-airflow-image:latest # Use the image built with Dockerfile
     build:
       context: .
     container_name: airflow-webserver
@@ -22,7 +21,8 @@ services:
     command: webserver
 
   airflow-scheduler:
-    image: my-custom-airflow-image:latest
+    build:
+      context: .
     container_name: airflow-scheduler
     restart: always
     environment:
@@ -40,7 +40,8 @@ services:
     command: scheduler
 
   airflow-worker:
-    image: my-custom-airflow-image:latest
+    build:
+      context: .
     container_name: airflow-worker
     restart: always
     environment:
