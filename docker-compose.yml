@@ -1,0 +1,94 @@
+version: "3.8"
+
+services:
+  airflow-webserver:
+    image: custom-airflow:latest # Use the image built with Dockerfile
+    build:
+      context: .
+    container_name: airflow-webserver
+    restart: always
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=CeleryExecutor
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
+      - AIRFLOW__CELERY__BROKER_URL=redis://airflow-redis:6379/0
+      - AIRFLOW__CELERY__RESULT_BACKEND=db+postgresql://airflow:airflow@airflow-postgres:5432/airflow
+    ports:
+      - "8080:8080" # Maps the container's port 8080 to the host's port 8080
+    volumes:
+      - ./dags:/opt/airflow/dags # Mount local DAGs directory
+      - ./logs:/opt/airflow/logs # Mount local logs directory
+      - ./plugins:/opt/airflow/plugins # Mount local plugins directory
+    depends_on:
+      - airflow-postgres
+      - airflow-redis
+    command: webserver
+
+  airflow-scheduler:
+    image: custom-airflow:latest
+    container_name: airflow-scheduler
+    restart: always
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=CeleryExecutor
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
+      - AIRFLOW__CELERY__BROKER_URL=redis://airflow-redis:6739/0
+      - AIRFLOW__CELERY__RESULT_BACKEND=db+postgresql://airflow:airflow@airflow-postgres:5432/airflow
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+    depends_on:
+      - airflow-postgres
+      - airflow-redis
+    command: scheduler
+
+  airflow-worker:
+    image: custom-airflow:latest
+    container_name: airflow-worker
+    restart: always
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=CeleryExecutor
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
+      - AIRFLOW__CELERY__BROKER_URL=redis://airflow-redis:6739/0
+      - AIRFLOW__CELERY__RESULT_BACKEND=db+postgresql://airflow:airflow@airflow-postgres:5432/airflow
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+    depends_on:
+      - airflow-postgres
+      - airflow-redis
+    command: celery worker
+
+  airflow-redis:
+    image: redis:latest
+    container_name: airflow-redis
+    restart: always
+    ports:
+      - "6379:6379"
+  
+  airflow-postgres:
+    image: postgres:13
+    container_name: airflow-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    ports:
+      - "5432:5432"
+
+  airflow-init:
+    image: custom-airflow:latest
+    container_name: airflow-init
+    entrypoint: ["bash", "-c"]
+    command:
+      - >
+        airflow db upgrade &&
+        airflow users create --username admin --pasword admin --firstname Admin --lastname User --role Admin --email admin@example.com
+    depends_on:
+      - airflow-postgres
+      - airflow-redis
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
