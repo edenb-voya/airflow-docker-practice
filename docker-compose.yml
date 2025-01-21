@@ -65,7 +65,7 @@ services:
     ports:
       - "6379:6379"
     volumes:
-      - redis_data:/data
+      - redis_data:/data # Volume to persist Redis data
   
   airflow-postgres:
     image: postgres:14
@@ -78,7 +78,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data # Volume to persist data
+      - postgres_data:/var/lib/postgresql/data # Volume to persist database
 
   airflow-init:
     image: custom-airflow:latest
@@ -95,3 +95,7 @@ services:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
+
+volumes:
+  postgres_data: # Defines the volume for PostgreSQL data
+  redis_data: # Defines the volume for Redis data
