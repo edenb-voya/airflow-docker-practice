@@ -23,19 +23,16 @@ ENV AIRFLOW_HOME=/opt/airflow
 # Set default working directory
 WORKDIR $AIRFLOW_HOME
 
-# Upgrades pip to latest version
-RUN pip install --upgrade pip
-
 # Install additional Python libraries and Airflow providers
 RUN pip install --no-cache-dir \
     --constraint "${CONSTRAINT_URL}" \
-    pandas==2.1.0 \
-    numpy==1.21.2 \
-    scikit-learn==0.24.2 \
-    matplotlib==3.4.3 \
-    plotly==5.3.1 \
-    apache-airflow-providers-google==5.0.0 \
-    apache-airflow-providers-amazon==3.0.0 
+    pandas \
+    numpy \
+    scikit-learn \
+    matplotlib \
+    plotly \
+    apache-airflow-providers-google \
+    apache-airflow-providers-amazon 
 
 # Initialize the Airflow database and start the webserver
 ENTRYPOINT ["tini", "--"]
@@ -45,4 +42,4 @@ CMD ["airflow", "webserver"]
 EXPOSE 8080
 
 # Health check to ensure the webserver is running
-#HEALTHCHECK --interval=30s --timeout=30s --start-period=5s CMD curl --fail https://localhost:8080/health || exit 1
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s CMD curl --fail https://localhost:8080/health || exit 1
