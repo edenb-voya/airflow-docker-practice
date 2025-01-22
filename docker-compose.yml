@@ -55,6 +55,11 @@ services:
       - ./logs:/opt/airflow/logs # Mount local logs directory
       - ./plugins:/opt/airflow/plugins # Mount local plugins directory
     restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://localhost:8080/health || exit 1"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
 
   airflow-scheduler:
     build:
@@ -76,6 +81,11 @@ services:
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
     restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://localhost:8080/health || exit 1"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
   
   airflow-worker:
     build:
@@ -97,6 +107,11 @@ services:
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
     restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "curl --fail http://localhost:8080/health || exit 1"]
+      interval: 30s
+      timeout: 30s
+      retries: 3
 
   airflow-redis:
     image: redis:latest
