@@ -152,3 +152,5 @@
 [2025-01-22T23:55:00.041+0000] {manager.py:488} INFO - Process each file at most once every 30 seconds
 [2025-01-22T23:55:00.042+0000] {manager.py:489} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
 [2025-01-22T23:55:00.044+0000] {manager.py:759} INFO - Searching for files in /opt/airflow/dags
+[2025-01-22T23:55:00.054+0000] {manager.py:762} INFO - There are 0 files in /opt/airflow/dags
+[2025-01-22T23:58:11.310+0000] {manager.py:469} INFO - Exiting gracefully upon receiving signal 15
