@@ -34,7 +34,7 @@ ENTRYPOINT ["tini", "--"]
 
 # Initialize the Airflow database and start the webserver
 ENTRYPOINT ["tini", "--"]
-CMD ["bash"]
+CMD ["airflow", "webserver"]
 
 # Expose port 8080 for the Airflow webserver
 EXPOSE 8080
