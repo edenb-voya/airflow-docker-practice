@@ -23,6 +23,9 @@ ENV AIRFLOW_HOME=/opt/airflow
 # Set default working directory
 WORKDIR $AIRFLOW_HOME
 
+# Upgrades pip to latest version
+RUN pip install --upgrade pip
+
 # Install additional Python libraries and Airflow providers
 RUN pip install --no-cache-dir \
     --constraint "${CONSTRAINT_URL}" \
