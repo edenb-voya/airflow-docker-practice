@@ -31,17 +31,6 @@ services:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
-    watch:
-      - action: sync
-        path: ./dags
-        target: /opt/airflow/dags
-      - action: sync
-        path: ./plugins
-        target: /opt/airflow/plugins
-      - action: rebuild
-        path: ./Dockerfile
-      - action: rebuild
-        path: ./docker-compose.yml
     restart: "no"
 
   airflow-webserver:
@@ -66,17 +55,6 @@ services:
       - ./dags:/opt/airflow/dags # Mount local DAGs directory
       - ./logs:/opt/airflow/logs # Mount local logs directory
       - ./plugins:/opt/airflow/plugins # Mount local plugins directory
-    watch:
-      - action: sync
-        path: ./dags
-        target: /opt/airflow/dags
-      - action: sync
-        path: ./plugins
-        target: /opt/airflow/plugins
-      - action: rebuild
-        path: ./Dockerfile
-      - action: rebuild
-        path: ./docker-compose.yml
     restart: always
     healthcheck:
       test: ["CMD-SHELL", "curl --fail http://localhost:8080/health || exit 1"]
@@ -103,17 +81,6 @@ services:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
-    watch:
-      - action: sync
-        path: ./dags
-        target: /opt/airflow/dags
-      - action: sync
-        path: ./plugins
-        target: /opt/airflow/plugins
-      - action: rebuild
-        path: ./Dockerfile
-      - action: rebuild
-        path: ./docker-compose.yml
     restart: always
     healthcheck:
       test: ["CMD-SHELL", "curl --fail http://localhost:8080/health || exit 1"]
@@ -136,17 +103,6 @@ services:
         condition: service_completed_successfully
       #- airflow-postgres
       #- airflow-redis     
-    watch:
-      - action: sync
-        path: ./dags
-        target: /opt/airflow/dags
-      - action: sync
-        path: ./plugins
-        target: /opt/airflow/plugins
-      - action: rebuild
-        path: ./Dockerfile
-      - action: rebuild
-        path: ./docker-compose.yml
     volumes:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
