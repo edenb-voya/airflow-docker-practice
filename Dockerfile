@@ -14,6 +14,9 @@ ENV AIRFLOW__CELERY__BROKER_URL=redis://redis:6379/0
 # Set the result backend to PostgreSQL (we'll configure this in docker-compose)
 ENV AIRFLOW__CELERY__RESULT_BACKEND=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
 
+# Set default working directory
+WORKDIR $AIRFLOW_HOME
+
 # Install additional Python libraries and Airflow providers
 RUN pip install --no-cache-dir \
     pandas \
@@ -25,6 +28,8 @@ RUN pip install --no-cache-dir \
     apache-airflow-providers-amazon \
     --constraint "${CONSTRAINT_URL}"
 
+
+
 # Copy local DAGs to the Airflow directory inside the container
 COPY ./dags /opt/airflow/dags
 
@@ -32,7 +37,7 @@ COPY ./dags /opt/airflow/dags
 COPY ./plugins /opt/airflow/plugins
 
 # Initialize the Airflow database and start the webserver
-ENTRYPOINT ["bash", "-c", "airflow db upgrade && exec airflow webserver"]
+CMD ["airflow", "webserver"]
 
 # Expose port 8080 for the Airflow webserver
 EXPOSE 8080
