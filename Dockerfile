@@ -30,8 +30,11 @@ RUN pip install --no-cache-dir \
     apache-airflow-providers-google \
     apache-airflow-providers-amazon \
 
+ENTRYPOINT ["tini", "--"]
+
 # Initialize the Airflow database and start the webserver
-CMD ["airflow", "webserver"]
+ENTRYPOINT ["tini", "--"]
+CMD ["bash"]
 
 # Expose port 8080 for the Airflow webserver
 EXPOSE 8080
