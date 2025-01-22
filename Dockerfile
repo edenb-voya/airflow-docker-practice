@@ -2,12 +2,16 @@
 FROM apache/airflow:2.7.1-python3.10
 
 # Install system dependencies (if any additional are required)
+USER root
+
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-       build-essential \
-       libpq-dev \
+    build-essential \
+    libpq-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+
+USER airflow
 
 # Set environment variables
 ENV AIRFLOW_VERSION=2.7.1
@@ -21,16 +25,14 @@ WORKDIR $AIRFLOW_HOME
 
 # Install additional Python libraries and Airflow providers
 RUN pip install --no-cache-dir \
-    --constraint "${CONSTRAINT_URL}"
+    --constraint "${CONSTRAINT_URL}" \
     pandas \
     numpy \
     scikit-learn \
     matplotlib \
     plotly \
     apache-airflow-providers-google \
-    apache-airflow-providers-amazon \
-
-ENTRYPOINT ["tini", "--"]
+    apache-airflow-providers-amazon 
 
 # Initialize the Airflow database and start the webserver
 ENTRYPOINT ["tini", "--"]
