@@ -1,5 +1,5 @@
 # Official Apache Airflow base image
-FROM apache/airflow:2.6.3-python3.10
+FROM apache/airflow:2.7.1-python3.10
 
 # Set environment variables
 ENV AIRFLOW_VERSION=2.6.3
