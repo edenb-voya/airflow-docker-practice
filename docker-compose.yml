@@ -88,7 +88,6 @@ services:
     build:
       context: .
     container_name: airflow-init
-    # entrypoint: ["bash", "-c"]
     command: >
       bash -c "
       while ! pg_isready -h airflow-postgres -U airflow; do
