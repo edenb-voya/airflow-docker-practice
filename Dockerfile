@@ -33,7 +33,8 @@ RUN pip install --no-cache-dir \
     matplotlib \
     plotly \
     apache-airflow-providers-google \
-    apache-airflow-providers-amazon 
+    apache-airflow-providers-amazon \
+    Flask-Limiter[Redis]
 
 # Initialize the Airflow database and start the webserver
 ENTRYPOINT ["tini", "--"]
