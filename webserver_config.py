@@ -21,12 +21,12 @@ def configure_limiter(app):
         app=app,
         storage_uri="redis://airflow-redis:6379/0",
         storage_options={"socket_connect_timeout": 30},
-        strategy="fixed-window",  # or "moving-window"
+        strategy="fixed-window"  # or "moving-window"
     )
     return limiter
 
 # Apply the configuration to the Flask app
-def init_app():
+def init_app(app):
     logger.debug("Initializing Flask app with custom configuration")
     app = create_app()
     configure_limiter(app)
@@ -34,4 +34,5 @@ def init_app():
     return app
 
 # Initialize the Flask app
-app = init_app()
+app = create_app()
+app = init_app(app)
