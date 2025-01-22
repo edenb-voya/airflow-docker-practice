@@ -26,7 +26,7 @@ WORKDIR $AIRFLOW_HOME
 # Install additional Python libraries and Airflow providers
 RUN pip install --no-cache-dir \
     --constraint "${CONSTRAINT_URL}" \
-    pandas==1.3.3 \
+    pandas==2.1.0 \
     numpy==1.21.2 \
     scikit-learn==0.24.2 \
     matplotlib==3.4.3 \
@@ -42,4 +42,4 @@ CMD ["airflow", "webserver"]
 EXPOSE 8080
 
 # Health check to ensure the webserver is running
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s CMD curl --fail https://localhost:8080/health || exit 1
+#HEALTHCHECK --interval=30s --timeout=30s --start-period=5s CMD curl --fail https://localhost:8080/health || exit 1
