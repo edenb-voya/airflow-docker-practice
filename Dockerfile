@@ -13,14 +13,8 @@ RUN apt-get update \
 ENV AIRFLOW_VERSION=2.7.1
 ENV PYTHON_VERSION=3.10
 ENV CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
-# Airflow will use the CeleryExecutor for distributed task execution
-ENV AIRFLOW__CORE__EXECUTOR=CeleryExecutor
 # Default Airflow home directory (where logs and configurations are stored)
 ENV AIRFLOW_HOME=/opt/airflow
-# Set the broker URL to use Redis (we'll configure this in docker-compose)
-ENV AIRFLOW__CELERY__BROKER_URL=redis://redis:6379/0
-# Set the result backend to PostgreSQL (we'll configure this in docker-compose)
-ENV AIRFLOW__CELERY__RESULT_BACKEND=postgresql+psycopg2://airflow:airflow@postgres:5432/airflow
 
 # Set default working directory
 WORKDIR $AIRFLOW_HOME
