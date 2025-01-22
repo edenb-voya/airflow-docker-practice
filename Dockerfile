@@ -1,8 +1,16 @@
 # Official Apache Airflow base image
 FROM apache/airflow:2.7.1-python3.10
 
+# Install system dependencies (if any additional are required)
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+       build-essential \
+       libpq-dev \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
 # Set environment variables
-ENV AIRFLOW_VERSION=2.6.3
+ENV AIRFLOW_VERSION=2.7.1
 ENV PYTHON_VERSION=3.10
 ENV CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
 # Airflow will use the CeleryExecutor for distributed task execution
@@ -19,6 +27,7 @@ WORKDIR $AIRFLOW_HOME
 
 # Install additional Python libraries and Airflow providers
 RUN pip install --no-cache-dir \
+    --constraint "${CONSTRAINT_URL}"
     pandas \
     numpy \
     scikit-learn \
@@ -26,15 +35,6 @@ RUN pip install --no-cache-dir \
     plotly \
     apache-airflow-providers-google \
     apache-airflow-providers-amazon \
-    --constraint "${CONSTRAINT_URL}"
-
-
-
-# Copy local DAGs to the Airflow directory inside the container
-COPY ./dags /opt/airflow/dags
-
-# Copy local DAGs to the Airflow directory inside the container
-COPY ./plugins /opt/airflow/plugins
 
 # Initialize the Airflow database and start the webserver
 CMD ["airflow", "webserver"]
