@@ -4,12 +4,12 @@ FROM apache/airflow:2.7.1-python3.10
 # Install system dependencies (if any additional are required)
 USER root
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
     build-essential \
-    libpq-dev \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    libpq-dev && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 USER airflow
 
@@ -26,13 +26,13 @@ WORKDIR $AIRFLOW_HOME
 # Install additional Python libraries and Airflow providers
 RUN pip install --no-cache-dir \
     --constraint "${CONSTRAINT_URL}" \
-    pandas \
-    numpy \
-    scikit-learn \
-    matplotlib \
-    plotly \
-    apache-airflow-providers-google \
-    apache-airflow-providers-amazon 
+    pandas==1.3.3 \
+    numpy==1.21.2 \
+    scikit-learn==0.24.2 \
+    matplotlib==3.4.3 \
+    plotly==5.3.1 \
+    apache-airflow-providers-google==5.0.0 \
+    apache-airflow-providers-amazon==3.0.0 
 
 # Initialize the Airflow database and start the webserver
 ENTRYPOINT ["tini", "--"]
@@ -40,3 +40,6 @@ CMD ["airflow", "webserver"]
 
 # Expose port 8080 for the Airflow webserver
 EXPOSE 8080
+
+# Health check to ensure the webserver is running
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s CMD curl --fail https://localhost:8080/health || exit 1
