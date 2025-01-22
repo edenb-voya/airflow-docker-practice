@@ -77,3 +77,21 @@
 [2025-01-22T22:26:51.573+0000] {manager.py:762} INFO - There are 0 files in /opt/airflow/dags
 [2025-01-22T22:31:51.995+0000] {manager.py:759} INFO - Searching for files in /opt/airflow/dags
 [2025-01-22T22:31:52.003+0000] {manager.py:762} INFO - There are 0 files in /opt/airflow/dags
+[2025-01-22T22:36:52.433+0000] {manager.py:759} INFO - Searching for files in /opt/airflow/dags
+[2025-01-22T22:36:52.442+0000] {manager.py:762} INFO - There are 0 files in /opt/airflow/dags
+[2025-01-22T22:41:28.164+0000] {manager.py:469} INFO - Exiting gracefully upon receiving signal 15
+[2025-01-22T22:42:06.061+0000] {manager.py:487} INFO - Processing files using up to 2 processes at a time 
+[2025-01-22T22:42:06.063+0000] {manager.py:488} INFO - Process each file at most once every 30 seconds
+[2025-01-22T22:42:06.064+0000] {manager.py:489} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-01-22T22:42:06.065+0000] {manager.py:759} INFO - Searching for files in /opt/airflow/dags
+[2025-01-22T22:42:06.071+0000] {manager.py:762} INFO - There are 0 files in /opt/airflow/dags
+[2025-01-22T22:44:35.242+0000] {manager.py:469} INFO - Exiting gracefully upon receiving signal 15
+[2025-01-22T22:45:08.035+0000] {manager.py:487} INFO - Processing files using up to 2 processes at a time 
+[2025-01-22T22:45:08.036+0000] {manager.py:488} INFO - Process each file at most once every 30 seconds
+[2025-01-22T22:45:08.038+0000] {manager.py:489} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2025-01-22T22:45:08.039+0000] {manager.py:759} INFO - Searching for files in /opt/airflow/dags
+[2025-01-22T22:45:08.047+0000] {manager.py:762} INFO - There are 0 files in /opt/airflow/dags
+[2025-01-22T22:50:08.465+0000] {manager.py:759} INFO - Searching for files in /opt/airflow/dags
+[2025-01-22T22:50:08.473+0000] {manager.py:762} INFO - There are 0 files in /opt/airflow/dags
+[2025-01-22T22:55:08.852+0000] {manager.py:759} INFO - Searching for files in /opt/airflow/dags
+[2025-01-22T22:55:08.859+0000] {manager.py:762} INFO - There are 0 files in /opt/airflow/dags

@@ -22,7 +22,7 @@ ENV CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints
 ENV AIRFLOW_HOME=/opt/airflow
 
 # Set default working directory
-WORKDIR $AIRFLOW_HOME
+WORKDIR ${AIRFLOW_HOME}
 
 # Install additional Python libraries and Airflow providers
 RUN pip install --no-cache-dir \
@@ -35,6 +35,9 @@ RUN pip install --no-cache-dir \
     apache-airflow-providers-google \
     apache-airflow-providers-amazon \
     Flask-Limiter[Redis]
+
+# Copy custom webserver_config.py
+COPY webserver_config.py ${AIRFLOW_HOME}/webserver_config.py
 
 # Initialize the Airflow database and start the webserver
 ENTRYPOINT ["tini", "--"]
