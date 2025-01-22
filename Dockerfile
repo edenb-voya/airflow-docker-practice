@@ -1,5 +1,5 @@
 # Official Apache Airflow base image
-FROM apache/airflow:2.5.3
+FROM apache/airflow:2.6.3
 
 # Set environment variables
 # Airflow will use the CeleryExecutor for distributed task execution
