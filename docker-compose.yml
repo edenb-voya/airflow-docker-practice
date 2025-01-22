@@ -3,6 +3,7 @@ services:
     build:
       context: .
     container_name: airflow-webserver
+    command: ["airflow", "webserver"]
     restart: always
     environment:
       - AIRFLOW__CORE__EXECUTOR=CeleryExecutor
@@ -18,12 +19,12 @@ services:
     depends_on:
       - airflow-postgres
       - airflow-redis
-    command: webserver
 
   airflow-scheduler:
     build:
       context: .
     container_name: airflow-scheduler
+    command: ["airflow", "scheduler"]
     restart: always
     environment:
       - AIRFLOW__CORE__EXECUTOR=CeleryExecutor
@@ -37,12 +38,12 @@ services:
     depends_on:
       - airflow-postgres
       - airflow-redis
-    command: scheduler
 
   airflow-worker:
     build:
       context: .
     container_name: airflow-worker
+    command: ["airflow", "celery", "worker"]
     restart: always
     environment:
       - AIRFLOW__CORE__EXECUTOR=CeleryExecutor
@@ -56,7 +57,6 @@ services:
     depends_on:
       - airflow-postgres
       - airflow-redis
-    command: celery worker
 
   airflow-redis:
     image: redis:latest
@@ -66,6 +66,10 @@ services:
       - "6379:6379"
     volumes:
       - redis_data:/data # Volume to persist Redis data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      retries: 5
   
   airflow-postgres:
     image: postgres:14
@@ -103,7 +107,7 @@ services:
       --role Admin \
       --email admin@example.com"
     environment:
-      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__EXECUTOR=CeleryExecutor
       - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
       # - AIRFLOW__CORE__LOAD_EXAMPLES=False
     depends_on:
