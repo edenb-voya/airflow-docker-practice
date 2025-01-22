@@ -84,19 +84,32 @@ services:
     build:
       context: .
     container_name: airflow-init
-    entrypoint: ["bash", "-c"]
+    # entrypoint: ["bash", "-c"]
     command:
       - >
-        airflow db upgrade &&
-        airflow users create --username admin --pasword admin --firstname Admin --lastname User --role Admin --email admin@example.com
+        airflow db init &&
+        airflow users create 
+          --username admin 
+          --pasword admin 
+          --firstname Admin 
+          --lastname User 
+          --role Admin 
+          --email admin@example.com
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@airflow-postgres:5432/airflow
+      # - AIRFLOW__CORE__LOAD_EXAMPLES=False
     depends_on:
       - airflow-postgres
-      - airflow-redis
+      # - airflow-redis
     volumes:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
+    restart: "no"
 
 volumes:
   postgres_data: # Defines the volume for PostgreSQL data
+    driver: local
   redis_data: # Defines the volume for Redis data
+    driver: local
