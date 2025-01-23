@@ -62,7 +62,8 @@ services:
     ports:
       - "8080:8080" # Maps the container's port 8080 to the host's port 8080
     environment:
-      - RATELIMIT_STORAGE_URI=redis://airflow-redis:6379/0
+      <<: *airflow-common-env
+      RATELIMIT_STORAGE_URI: redis://redis:6379/0
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
       interval: 30s
@@ -185,6 +186,7 @@ services:
       _AIRFLOW_WWW_USER_CREATE: 'true'
       _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
       _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
+      RATELIMIT_STORAGE_URI: redis://redis:6379/0
     user: "0:0"
     volumes:
       - ${AIRFLOW_PROJ_DIR:-.}:/sources
