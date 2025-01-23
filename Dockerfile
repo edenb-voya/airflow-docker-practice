@@ -1,5 +1,5 @@
 # Official Apache Airflow base image
-FROM apache/airflow:2.7.1-python3.10
+FROM apache/airflow:2.10.4-python3.12
 
 # Install system dependencies (if any additional are required)
 USER root
@@ -17,8 +17,8 @@ RUN apt-get update \
 USER airflow
 
 # Set environment variables
-ENV AIRFLOW_VERSION=2.7.1
-ENV PYTHON_VERSION=3.10
+ENV AIRFLOW_VERSION=2.10.4
+ENV PYTHON_VERSION=3.12
 ENV CONSTRAINT_URL="https://raw.githubusercontent.com/apache/airflow/constraints-${AIRFLOW_VERSION}/constraints-${PYTHON_VERSION}.txt"
 # Default Airflow home directory (where logs and configurations are stored)
 ENV AIRFLOW_HOME=/opt/airflow
@@ -27,7 +27,7 @@ ENV AIRFLOW_HOME=/opt/airflow
 WORKDIR ${AIRFLOW_HOME}
 
 # Install additional Python libraries and Airflow providers
-RUN pip install --no-cache-dir \
+RUN pip install --no-cache-dir "apache-airflow==${AIRFLOW_VERSION}" lxml \
     --constraint "${CONSTRAINT_URL}" \
     pandas \
     numpy \
