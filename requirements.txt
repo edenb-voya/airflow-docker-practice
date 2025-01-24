@@ -6,3 +6,5 @@ plotly
 apache-airflow-providers-google 
 apache-airflow-providers-amazon 
 Flask-Limiter[Redis]
+lxml
+beautifulsoup4
