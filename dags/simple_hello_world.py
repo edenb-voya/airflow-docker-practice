@@ -14,7 +14,8 @@ dag = DAG(
     description = 'Our first "Hello World" DAG!',
     default_args = default_args,
     start_date = days_ago(1),
-    schedule_interval = None
+    schedule_interval = @daily,
+    tags = ['beginner', 'bash', 'hello world']
 )
 
 task = BashOperator(
