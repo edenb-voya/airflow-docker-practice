@@ -51,12 +51,8 @@ with DAG(
     )
 
     taskD = BashOperator(
-        task_id = 'taskC',
-        bash_command = '''
-            echo TASK C has started!
-            sleep 15
-            echo TASK C has ended!
-        '''
+        task_id = 'taskD',
+        bash_command = 'echo TASK D completed!'
     )
 
 taskA.set_downstream(taskB)
