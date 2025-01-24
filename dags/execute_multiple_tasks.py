@@ -55,8 +55,6 @@ with DAG(
         bash_command = 'echo TASK D completed!'
     )
 
-taskA >> taskB
-taskA >> taskB
+taskA >> [taskB, taskC]
 
-taskD << taskB
-taskD << taskC
+taskD << [taskB, taskC]
