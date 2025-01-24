@@ -6,11 +6,8 @@ from airflow import DAG
 from airflow.operators.bash import BashOperator
 
 default_args = {
-    'owner' : 'airflow'
+    'owner' : 'airflow',
 }
-
-#date_seven_days_ago = datetime.now() - timedelta(days=7)
-#iso_format_date = date_seven_days_ago.isoformat()
 
 dag = DAG(
     dag_id = 'hello_world',
