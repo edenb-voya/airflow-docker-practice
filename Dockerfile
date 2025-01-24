@@ -42,6 +42,3 @@ CMD ["airflow", "webserver"]
 
 # Expose port 8080 for the Airflow webserver
 EXPOSE 8080
-
-# Health check to ensure the webserver is running
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s CMD curl --fail https://localhost:8080/health || exit 1
