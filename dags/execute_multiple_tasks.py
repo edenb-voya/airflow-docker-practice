@@ -54,6 +54,8 @@ with DAG(
         bash_command = 'taskG.sh'
     )
 
-taskA >> [taskB, taskC]
+taskA >> taskB >> taskE
 
-taskD << [taskB, taskC]
+taskA >> taskC >> taskF
+
+taskA >> taskD >> taskG
