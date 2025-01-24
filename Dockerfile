@@ -26,17 +26,12 @@ ENV AIRFLOW_HOME=/opt/airflow
 # Set default working directory
 WORKDIR ${AIRFLOW_HOME}
 
+# Copy requirements.txt into the image
+COPY requirements.txt /
+
 # Install additional Python libraries and Airflow providers
-RUN pip install --no-cache-dir "apache-airflow==${AIRFLOW_VERSION}" lxml \
-    --constraint "${CONSTRAINT_URL}" \
-    pandas \
-    numpy \
-    scikit-learn \
-    matplotlib \
-    plotly \
-    apache-airflow-providers-google \
-    apache-airflow-providers-amazon \
-    Flask-Limiter[Redis]
+RUN pip install --no-cache-dir "apache-airflow==${AIRFLOW_VERSION}" -r /requirements.txt
+    --constraint "${CONSTRAINT_URL}" \   
 
 # Copy custom webserver_config.py
 COPY webserver_config.py ${AIRFLOW_HOME}/webserver_config.py
