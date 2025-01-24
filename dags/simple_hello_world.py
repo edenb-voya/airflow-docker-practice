@@ -20,7 +20,7 @@ dag = DAG(
 
 task = BashOperator(
     task_id = 'hello_world_task',
-    bash_command = 'echo Hello world!',
+    bash_command = 'echo Hello world once again!',
     dag = dag
 )
 
