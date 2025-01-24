@@ -33,9 +33,6 @@ COPY requirements.txt /
 RUN pip install --no-cache-dir "apache-airflow==${AIRFLOW_VERSION}" -r /requirements.txt
     --constraint "${CONSTRAINT_URL}" \   
 
-# Copy custom webserver_config.py
-COPY webserver_config.py ${AIRFLOW_HOME}/webserver_config.py
-
 # Initialize the Airflow database and start the webserver
 ENTRYPOINT ["tini", "--"]
 CMD ["airflow", "webserver"]
