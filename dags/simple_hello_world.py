@@ -9,11 +9,14 @@ default_args = {
     'owner' : 'airflow'
 }
 
+date_seven_days_ago = datetime.now() - timedelta(days=7)
+iso_format_date = date_seven_days_ago.isoformat()
+
 dag = DAG(
     dag_id = 'hello_world',
     description = 'Our first "Hello World" DAG!',
     default_args = default_args,
-    start_date = days_ago(1),
+    start_date = iso_format_date,
     schedule_interval = None
 )
 
