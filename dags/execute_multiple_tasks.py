@@ -15,8 +15,8 @@ with DAG(
     default_args = default_args,
     start_date = days_ago(1),
     schedule_interval = timedelta(days=1),
-    tags = ['upstream', 'downstream'],
-    template_searchpath = 'C:\Users\Eric.Denbin\Repos\airflow-docker-practice\dags\bash_scripts'
+    tags = ['scripts', 'template_search'],
+    template_searchpath = '/Users/Eric.Denbin/Repos/airflow-docker-practice/dags/bash_scripts'
 ) as dag:
 
     taskA = BashOperator(
