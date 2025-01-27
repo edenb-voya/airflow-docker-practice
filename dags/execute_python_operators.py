@@ -11,18 +11,11 @@ default_args = {
     'owner' : 'airflow'
 }
 
-def task_a():
-    print("Task A executed!")
+def greet_hello(name):
+    print("Hello, {name}!".format(name=name))
 
-def task_b():
-    time.sleep(5)
-    print("Task B executed!")
-
-def task_c():
-    print("Task C executed!")
-
-def task_d():
-    print("Task D executed!")
+def greet_hello_with_city(name, city):
+    print("Hello, {name} from {city}".format(name=name, city=city))
 
 
 with DAG(
