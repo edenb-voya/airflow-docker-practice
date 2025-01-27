@@ -4244,3 +4244,17 @@ NameError: name 'multiply_by_100' is not defined
 [2025-01-27T22:51:24.451+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:51:24.451+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2025-01-27T22:51:24.470+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:51:24.469+0000] {dag.py:4180} INFO - Setting next_dagrun for cross_task_communication to 2025-01-26 00:00:00+00:00, run_after=2025-01-27 00:00:00+00:00
 [2025-01-27T22:51:24.495+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cross_task_communicat.py took 0.102 seconds
+[2025-01-27T22:51:54.664+0000] {processor.py:186} INFO - Started process (PID=1559) to work on /opt/airflow/dags/cross_task_communicat.py
+[2025-01-27T22:51:54.671+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cross_task_communicat.py for tasks to queue
+[2025-01-27T22:51:54.674+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:51:54.673+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cross_task_communicat.py
+[2025-01-27T22:51:54.726+0000] {processor.py:925} INFO - DAG(s) 'cross_task_communication' retrieved from /opt/airflow/dags/cross_task_communicat.py
+[2025-01-27T22:51:54.784+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:51:54.784+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-01-27T22:51:54.825+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:51:54.824+0000] {dag.py:4180} INFO - Setting next_dagrun for cross_task_communication to 2025-01-26 00:00:00+00:00, run_after=2025-01-27 00:00:00+00:00
+[2025-01-27T22:51:54.863+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cross_task_communicat.py took 0.205 seconds
+[2025-01-27T22:52:24.995+0000] {processor.py:186} INFO - Started process (PID=1571) to work on /opt/airflow/dags/cross_task_communicat.py
+[2025-01-27T22:52:24.997+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/cross_task_communicat.py for tasks to queue
+[2025-01-27T22:52:24.999+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:52:24.999+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/cross_task_communicat.py
+[2025-01-27T22:52:25.027+0000] {processor.py:925} INFO - DAG(s) 'cross_task_communication' retrieved from /opt/airflow/dags/cross_task_communicat.py
+[2025-01-27T22:52:25.047+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:52:25.047+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-01-27T22:52:25.065+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:52:25.065+0000] {dag.py:4180} INFO - Setting next_dagrun for cross_task_communication to 2025-01-26 00:00:00+00:00, run_after=2025-01-27 00:00:00+00:00
+[2025-01-27T22:52:25.087+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/cross_task_communicat.py took 0.096 seconds

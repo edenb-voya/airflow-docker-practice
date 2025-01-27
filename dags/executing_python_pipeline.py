@@ -25,7 +25,7 @@ def remove_null_values(**kwargs):
 
     df = pd.read_json(json_data)
 
-    data = df.dropna()
+    df = df.dropna()
 
     print(df)
 
