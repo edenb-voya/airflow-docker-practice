@@ -43,3 +43,10 @@ with DAG(
         task_id='read_csv_file',
         python_callable=read_csv_file
     )
+
+    remove_null_values = PythonOperator(
+        task_id='remove_null_values',
+        python_callable=remove_null_values
+    )
+
+read_csv_file >> remove_null_values
