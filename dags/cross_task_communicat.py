@@ -38,7 +38,7 @@ with DAG(
 
     taskB = PythonOperator(
         task_id = 'multiply_by_100',
-        python_callable = greet_hello_with_city,
+        python_callable = multiply_by_100,
         op_kwargs={'counter': 9}
     )
 
