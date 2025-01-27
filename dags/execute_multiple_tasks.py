@@ -15,7 +15,7 @@ with DAG(
     default_args = default_args,
     start_date = days_ago(1),
     schedule_interval = timedelta(days=1),
-    tags = ['scripts', 'template_search'],
+    tags = ['scripts', 'template search'],
     template_searchpath = '/Users/Eric.Denbin/Repos/airflow-docker-practice/dags/bash_scripts'
 ) as dag:
 
