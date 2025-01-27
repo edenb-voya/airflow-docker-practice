@@ -39,6 +39,7 @@ with DAG(
     schedule_interval = '@once',
     tags = ['python', 'transform', 'pipeline']
 ) as dag:
+
     read_csv_file = PythonOperator(
         task_id='read_csv_file',
         python_callable=read_csv_file
