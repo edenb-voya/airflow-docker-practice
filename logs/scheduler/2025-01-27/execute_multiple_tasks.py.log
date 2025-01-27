@@ -9214,3 +9214,10 @@ SyntaxError: (unicode error) 'unicodeescape' codec can't decode bytes in positio
 [2025-01-27T22:50:24.697+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:50:24.697+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2025-01-27T22:50:24.718+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:50:24.718+0000] {dag.py:4180} INFO - Setting next_dagrun for executing_multiple_tasks to 2025-01-26 00:00:00+00:00, run_after=2025-01-27 00:00:00+00:00
 [2025-01-27T22:50:24.745+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/execute_multiple_tasks.py took 0.130 seconds
+[2025-01-27T22:50:54.817+0000] {processor.py:186} INFO - Started process (PID=1539) to work on /opt/airflow/dags/execute_multiple_tasks.py
+[2025-01-27T22:50:54.818+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/execute_multiple_tasks.py for tasks to queue
+[2025-01-27T22:50:54.820+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:50:54.820+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/execute_multiple_tasks.py
+[2025-01-27T22:50:54.881+0000] {processor.py:925} INFO - DAG(s) 'executing_multiple_tasks' retrieved from /opt/airflow/dags/execute_multiple_tasks.py
+[2025-01-27T22:50:54.899+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:50:54.899+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-01-27T22:50:54.917+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:50:54.916+0000] {dag.py:4180} INFO - Setting next_dagrun for executing_multiple_tasks to 2025-01-26 00:00:00+00:00, run_after=2025-01-27 00:00:00+00:00
+[2025-01-27T22:50:54.931+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/execute_multiple_tasks.py took 0.118 seconds

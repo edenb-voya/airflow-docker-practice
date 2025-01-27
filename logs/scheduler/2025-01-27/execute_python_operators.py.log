@@ -5693,3 +5693,17 @@ NameError: name 'task_a' is not defined
 [2025-01-27T22:50:23.521+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:50:23.521+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2025-01-27T22:50:23.536+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:50:23.536+0000] {dag.py:4180} INFO - Setting next_dagrun for execute_python_operators to 2025-01-26 00:00:00+00:00, run_after=2025-01-27 00:00:00+00:00
 [2025-01-27T22:50:23.551+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/execute_python_operators.py took 0.080 seconds
+[2025-01-27T22:50:53.665+0000] {processor.py:186} INFO - Started process (PID=1537) to work on /opt/airflow/dags/execute_python_operators.py
+[2025-01-27T22:50:53.667+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/execute_python_operators.py for tasks to queue
+[2025-01-27T22:50:53.669+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:50:53.669+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/execute_python_operators.py
+[2025-01-27T22:50:53.701+0000] {processor.py:925} INFO - DAG(s) 'execute_python_operators' retrieved from /opt/airflow/dags/execute_python_operators.py
+[2025-01-27T22:50:53.720+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:50:53.720+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-01-27T22:50:53.736+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:50:53.735+0000] {dag.py:4180} INFO - Setting next_dagrun for execute_python_operators to 2025-01-26 00:00:00+00:00, run_after=2025-01-27 00:00:00+00:00
+[2025-01-27T22:50:53.756+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/execute_python_operators.py took 0.095 seconds
+[2025-01-27T22:51:24.417+0000] {processor.py:186} INFO - Started process (PID=1549) to work on /opt/airflow/dags/execute_python_operators.py
+[2025-01-27T22:51:24.419+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/execute_python_operators.py for tasks to queue
+[2025-01-27T22:51:24.421+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:51:24.421+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/execute_python_operators.py
+[2025-01-27T22:51:24.457+0000] {processor.py:925} INFO - DAG(s) 'execute_python_operators' retrieved from /opt/airflow/dags/execute_python_operators.py
+[2025-01-27T22:51:24.479+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:51:24.479+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2025-01-27T22:51:24.498+0000] {logging_mixin.py:190} INFO - [2025-01-27T22:51:24.498+0000] {dag.py:4180} INFO - Setting next_dagrun for execute_python_operators to 2025-01-26 00:00:00+00:00, run_after=2025-01-27 00:00:00+00:00
+[2025-01-27T22:51:24.519+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/execute_python_operators.py took 0.107 seconds
