@@ -18,6 +18,19 @@ def read_csv_file():
 
     return df.to_json()
 
+def remove_null_values(**kwargs):
+    ti = kwargs['ti']
+
+    json_data = ti.xcom_pull(task_ids='read_csv_file')
+
+    df = pd.read_json(json_data)
+
+    data = df.dropna()
+
+    print(df)
+
+    return df.to_json()
+
 with DAG(
     dag_id = 'python_pipline',
     description = 'Running a Python pipeline',
