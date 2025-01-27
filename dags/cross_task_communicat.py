@@ -11,7 +11,7 @@ default_args = {
     'owner' : 'airflow'
 }
 
-def increment_by_1(counter):
+def increment_by_1(value):
     print("Value {value}!".format(value=value))
 
     return value + 1
