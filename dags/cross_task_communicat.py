@@ -16,7 +16,7 @@ def increment_by_1(counter):
 
     return counter + 1
 
-def multilpy_by_100(counter):
+def multiply_by_100(counter):
     print("Count {counter}!".format(counter=counter))
 
     return counter * 100
