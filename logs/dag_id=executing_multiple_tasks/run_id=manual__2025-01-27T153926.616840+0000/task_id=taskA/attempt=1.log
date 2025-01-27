@@ -1,0 +1,32 @@
+[2025-01-27T15:39:27.789+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-27T15:39:27.813+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: executing_multiple_tasks.taskA manual__2025-01-27T15:39:26.616840+00:00 [queued]>
+[2025-01-27T15:39:27.833+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: executing_multiple_tasks.taskA manual__2025-01-27T15:39:26.616840+00:00 [queued]>
+[2025-01-27T15:39:27.838+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-01-27T15:39:27.871+0000] {taskinstance.py:2889} INFO - Executing <Task(BashOperator): taskA> on 2025-01-27 15:39:26.616840+00:00
+[2025-01-27T15:39:27.881+0000] {standard_task_runner.py:72} INFO - Started process 2512 to run task
+[2025-01-27T15:39:27.886+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'executing_multiple_tasks', 'taskA', 'manual__2025-01-27T15:39:26.616840+00:00', '--job-id', '28', '--raw', '--subdir', 'DAGS_FOLDER/execute_multiple_tasks.py', '--cfg-path', '/tmp/tmp8tfk0bog']
+[2025-01-27T15:39:27.889+0000] {standard_task_runner.py:105} INFO - Job 28: Subtask taskA
+[2025-01-27T15:39:27.949+0000] {task_command.py:467} INFO - Running <TaskInstance: executing_multiple_tasks.taskA manual__2025-01-27T15:39:26.616840+00:00 [running]> on host 6eaa7309f7d4
+[2025-01-27T15:39:28.046+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='executing_multiple_tasks' AIRFLOW_CTX_TASK_ID='taskA' AIRFLOW_CTX_EXECUTION_DATE='2025-01-27T15:39:26.616840+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-27T15:39:26.616840+00:00'
+[2025-01-27T15:39:28.048+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-27T15:39:28.064+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-01-27T15:39:28.066+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', 'tmpmz9hlzho.sh']
+[2025-01-27T15:39:28.077+0000] {subprocess.py:99} INFO - Output:
+[2025-01-27T15:39:28.080+0000] {subprocess.py:106} INFO - TASK A has started!
+[2025-01-27T15:39:28.081+0000] {subprocess.py:106} INFO - TASK A printing 1
+[2025-01-27T15:39:28.083+0000] {subprocess.py:106} INFO - TASK A printing 2
+[2025-01-27T15:39:28.085+0000] {subprocess.py:106} INFO - TASK A printing 3
+[2025-01-27T15:39:28.087+0000] {subprocess.py:106} INFO - TASK A printing 4
+[2025-01-27T15:39:28.089+0000] {subprocess.py:106} INFO - TASK A printing 5
+[2025-01-27T15:39:28.091+0000] {subprocess.py:106} INFO - TASK A printing 6
+[2025-01-27T15:39:28.093+0000] {subprocess.py:106} INFO - TASK A printing 7
+[2025-01-27T15:39:28.095+0000] {subprocess.py:106} INFO - TASK A printing 8
+[2025-01-27T15:39:28.096+0000] {subprocess.py:106} INFO - TASK A printing 9
+[2025-01-27T15:39:28.098+0000] {subprocess.py:106} INFO - TASK A printing 10
+[2025-01-27T15:39:28.100+0000] {subprocess.py:106} INFO - TASK A has ended!
+[2025-01-27T15:39:28.103+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-01-27T15:39:28.134+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-27T15:39:28.136+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=executing_multiple_tasks, task_id=taskA, run_id=manual__2025-01-27T15:39:26.616840+00:00, execution_date=20250127T153926, start_date=20250127T153927, end_date=20250127T153928
+[2025-01-27T15:39:28.184+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-01-27T15:39:28.210+0000] {taskinstance.py:3895} INFO - 3 downstream tasks scheduled from follow-on schedule check
+[2025-01-27T15:39:28.215+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
