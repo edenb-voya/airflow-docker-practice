@@ -24,27 +24,18 @@ with DAG(
     default_args = default_args,
     start_date = days_ago(1),
     schedule_interval = '@daily',
-    tags = ['simple', 'python']
+    tags = ['parameters', 'python']
 ) as dag:
     taskA = PythonOperator(
-        task_id = 'taskA',
-        python_callable = task_a
+        task_id = 'greet_hello',
+        python_callable = greet_hello,
+        op_kwargs={'name': 'Desmond'}
     )
 
     taskB = PythonOperator(
-        task_id = 'taskB',
-        python_callable = task_b
+        task_id = 'greet_hello_with_city',
+        python_callable = greet_hello_with_city,
+        op_kwargs={'name': 'Louise', 'city': 'Seattle'}
     )
 
-    taskC = PythonOperator(
-        task_id = 'taskC',
-        python_callable = task_c
-    )
-
-    taskD = PythonOperator(
-        task_id = 'taskD',
-        python_callable = task_d
-    )
-
-taskA >> [taskB, taskC]
-[taskB, taskC] >> taskD
+taskA >> taskB
