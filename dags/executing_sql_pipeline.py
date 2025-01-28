@@ -32,4 +32,31 @@ with DAG(
         dag = dag
     )
 
+    insert_values_1 = PostgresOperator(
+        task_id = 'insert_values_1',
+        sql = r"""
+            INSERT INTO users (name, age, is_active) VALUES
+                ('Julie', 30, false),
+                ('Peter', 55, true),
+                ('Emily', 37, false),
+                ('Katrina', 54, false),
+                ('Joseph', 27, true);
+        """,
+        postgres_conn_id = 'postgres_conn',
+        dag=dag
+    )
+
+    insert_values_2 = PostgresOperator(
+        task_id = 'insert_values_2',
+        sql = r"""
+            INSERT INTO users (name, age) VALUES
+                ('Harry', 49),
+                ('Nancy', 52),
+                ('Elvis', 26),
+                ('Mia', 20);
+        """,
+        postgres_conn_id = 'postgres_conn',
+        dag=dag
+    )
+
 create_table
