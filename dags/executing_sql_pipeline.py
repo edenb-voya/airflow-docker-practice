@@ -59,4 +59,12 @@ with DAG(
         dag=dag
     )
 
-create_table
+    display_result = PostgresOperator(
+        task_id = 'display_result',
+        sql = r"""SELECT * FROM users;""",
+        postgres_conn_id = 'postgres_conn',
+        dag = dag,
+        do_xcom_push = True
+    )
+
+create_table >> [insert_values_1, insert_values_2] >> display_result
