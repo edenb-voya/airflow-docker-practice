@@ -63,7 +63,7 @@ with DAG(
     delete_values = PostgresOperator(
         task_id = 'delete_values',
         sql = r"""
-            DELETE FROM users WHERE is_active = 0;
+            DELETE FROM users WHERE is_active = FALSE;
         """,
         postgres_conn_id = 'postgres_conn',
         dag = dag
