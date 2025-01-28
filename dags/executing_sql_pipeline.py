@@ -18,7 +18,7 @@ with DAG(
     tags = ['pipeline', 'sql']
 ) as dag:
     create_table = PostgresOperator(
-        task_id = 'create_table'
+        task_id = 'create_table',
         sql = r"""
             CREATE TABLE IF NOT EXISTS users (
                     id INTEGER PRIMARY KEY,
