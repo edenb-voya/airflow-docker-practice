@@ -68,9 +68,6 @@ services:
       timeout: 10s
       retries: 5
       start_period: 30s
-    environment:
-      <<: *airflow-common-env
-      AIRFLOW__WEBSERVER__ALLOW_TEST_CONNECTIONS: ${AIRFLOW__WEBSERVER__ALLOW_TEST_CONNECTIONS:-'true'}
     restart: always
     depends_on:
       <<: *airflow-common-depends-on
