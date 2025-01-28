@@ -24,6 +24,7 @@ with DAG(
                     id INTEGER PRIMARY KEY,
                     name VARCHAR(50) NOT NULL,
                     age INTEGER NOT NULL,
+                    city VARCHAR(50),
                     is_active BOOLEAN DEFAULT true,
                     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             );
@@ -59,6 +60,24 @@ with DAG(
         dag=dag
     )
 
+    delete_values = PostgresOperator(
+        task_id = 'delete_values',
+        sql = r"""
+            DELETE FROM users WHERE is_active = 0;
+        """,
+        postgres_conn_id = 'postgres_conn',
+        dag = dag
+    )
+
+    update_values = PostgresOperator(
+        task_id = 'update_values',
+        sql = r"""
+            UPDATE users SET city = 'Seattle';
+        """,
+        postgres_conn_id = 'postgres_conn',
+        dag = dag
+    )
+
     display_result = PostgresOperator(
         task_id = 'display_result',
         sql = r"""SELECT * FROM users;""",
@@ -67,4 +86,4 @@ with DAG(
         do_xcom_push = True
     )
 
-create_table >> [insert_values_1, insert_values_2] >> display_result
+create_table >> [insert_values_1, insert_values_2] >> delete_values >> update_values >> display_result
