@@ -41,7 +41,8 @@ def groupby_smoker(ti):
         'charges': 'mean'
     }).reset_index()
 
-    smoker_df.to_csv('/opt/airflow/output/grouped_by_smoker.csv', index=False)
+    smoker_df.to_csv(
+        '/opt/airflow/output/grouped_by_smoker.csv', index=False)
 
 def groupby_region(ti):
     json_data = ti.xcom_pull(task_ids='remove_null_values')
@@ -53,7 +54,8 @@ def groupby_region(ti):
         'charges': 'mean'
     }).reset_index()
 
-    region_df.to_csv('/opt/airflow/output/grouped_by_region.csv', index=False)
+    region_df.to_csv(
+        '/opt/airflow/output/grouped_by_region.csv', index=False)
 
 with DAG(
     dag_id = 'python_pipline',
@@ -79,7 +81,7 @@ with DAG(
         python_callable=groupby_smoker
     )
 
-    groupby_smoker = PythonOperator(
+    groupby_region = PythonOperator(
         task_id='groupby_region',
         python_callable=groupby_region
     )
