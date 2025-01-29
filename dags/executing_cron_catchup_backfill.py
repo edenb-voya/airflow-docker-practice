@@ -32,7 +32,7 @@ with DAG(
     default_args = default_args,
     start_date = days_ago(30),
     schedule_interval = '0 */12 * * 6,0',
-    catchup = True
+    catchup = False
 ) as dag:
 
     taskA = BashOperator(
