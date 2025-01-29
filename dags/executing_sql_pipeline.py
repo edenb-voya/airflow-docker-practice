@@ -36,7 +36,7 @@ with DAG(
     insert_values_1 = PostgresOperator(
         task_id = 'insert_values_1',
         sql = r"""
-            INSERT INTO users (id, name, age, is_active) VALUES
+            INSERT INTO users (name, age, is_active) VALUES
                 ('Julie', 30, false),
                 ('Peter', 55, true),
                 ('Emily', 37, false),
@@ -50,7 +50,7 @@ with DAG(
     insert_values_2 = PostgresOperator(
         task_id = 'insert_values_2',
         sql = r"""
-            INSERT INTO users (id, name, age) VALUES
+            INSERT INTO users (name, age) VALUES
                 ('Harry', 49),
                 ('Nancy', 52),
                 ('Elvis', 26),
