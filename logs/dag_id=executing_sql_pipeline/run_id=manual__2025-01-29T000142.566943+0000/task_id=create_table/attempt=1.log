@@ -1,0 +1,38 @@
+[2025-01-29T00:01:43.011+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-29T00:01:43.022+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: executing_sql_pipeline.create_table manual__2025-01-29T00:01:42.566943+00:00 [queued]>
+[2025-01-29T00:01:43.027+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: executing_sql_pipeline.create_table manual__2025-01-29T00:01:42.566943+00:00 [queued]>
+[2025-01-29T00:01:43.029+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-01-29T00:01:43.037+0000] {taskinstance.py:2889} INFO - Executing <Task(PostgresOperator): create_table> on 2025-01-29 00:01:42.566943+00:00
+[2025-01-29T00:01:43.043+0000] {standard_task_runner.py:72} INFO - Started process 1325 to run task
+[2025-01-29T00:01:43.045+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'executing_sql_pipeline', 'create_table', 'manual__2025-01-29T00:01:42.566943+00:00', '--job-id', '24', '--raw', '--subdir', 'DAGS_FOLDER/executing_sql_pipeline.py', '--cfg-path', '/tmp/tmpe899uyv1']
+[2025-01-29T00:01:43.046+0000] {standard_task_runner.py:105} INFO - Job 24: Subtask create_table
+[2025-01-29T00:01:43.076+0000] {task_command.py:467} INFO - Running <TaskInstance: executing_sql_pipeline.create_table manual__2025-01-29T00:01:42.566943+00:00 [running]> on host 6b2a71fc0c6d
+[2025-01-29T00:01:43.131+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='executing_sql_pipeline' AIRFLOW_CTX_TASK_ID='create_table' AIRFLOW_CTX_EXECUTION_DATE='2025-01-29T00:01:42.566943+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-29T00:01:42.566943+00:00'
+[2025-01-29T00:01:43.133+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-29T00:01:43.140+0000] {sql.py:278} INFO - Executing: 
+            CREATE TABLE IF NOT EXISTS users (
+                    id SERIAL PRIMARY KEY,
+                    name VARCHAR(50) NOT NULL,
+                    age INTEGER NOT NULL,
+                    city VARCHAR(50),
+                    is_active BOOLEAN DEFAULT true,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+        
+[2025-01-29T00:01:43.148+0000] {base.py:84} INFO - Retrieving connection 'postgres_conn'
+[2025-01-29T00:01:43.154+0000] {base.py:84} INFO - Retrieving connection 'postgres_conn'
+[2025-01-29T00:01:43.158+0000] {sql.py:553} INFO - Running statement: 
+            CREATE TABLE IF NOT EXISTS users (
+                    id SERIAL PRIMARY KEY,
+                    name VARCHAR(50) NOT NULL,
+                    age INTEGER NOT NULL,
+                    city VARCHAR(50),
+                    is_active BOOLEAN DEFAULT true,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            );
+        , parameters: None
+[2025-01-29T00:01:43.165+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-29T00:01:43.167+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=executing_sql_pipeline, task_id=create_table, run_id=manual__2025-01-29T00:01:42.566943+00:00, execution_date=20250129T000142, start_date=20250129T000143, end_date=20250129T000143
+[2025-01-29T00:01:43.219+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-01-29T00:01:43.238+0000] {taskinstance.py:3895} INFO - 2 downstream tasks scheduled from follow-on schedule check
+[2025-01-29T00:01:43.242+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

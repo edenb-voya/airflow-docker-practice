@@ -1,0 +1,25 @@
+[2025-01-29T00:04:34.893+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-29T00:04:34.903+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: executing_sql_pipeline.delete_values manual__2025-01-29T00:04:32.762764+00:00 [queued]>
+[2025-01-29T00:04:34.909+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: executing_sql_pipeline.delete_values manual__2025-01-29T00:04:32.762764+00:00 [queued]>
+[2025-01-29T00:04:34.911+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-01-29T00:04:34.919+0000] {taskinstance.py:2889} INFO - Executing <Task(PostgresOperator): delete_values> on 2025-01-29 00:04:32.762764+00:00
+[2025-01-29T00:04:34.925+0000] {standard_task_runner.py:72} INFO - Started process 1385 to run task
+[2025-01-29T00:04:34.928+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'executing_sql_pipeline', 'delete_values', 'manual__2025-01-29T00:04:32.762764+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/executing_sql_pipeline.py', '--cfg-path', '/tmp/tmps9k_q6sc']
+[2025-01-29T00:04:34.929+0000] {standard_task_runner.py:105} INFO - Job 30: Subtask delete_values
+[2025-01-29T00:04:34.964+0000] {task_command.py:467} INFO - Running <TaskInstance: executing_sql_pipeline.delete_values manual__2025-01-29T00:04:32.762764+00:00 [running]> on host 6b2a71fc0c6d
+[2025-01-29T00:04:35.017+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='executing_sql_pipeline' AIRFLOW_CTX_TASK_ID='delete_values' AIRFLOW_CTX_EXECUTION_DATE='2025-01-29T00:04:32.762764+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-29T00:04:32.762764+00:00'
+[2025-01-29T00:04:35.018+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-29T00:04:35.027+0000] {sql.py:278} INFO - Executing: 
+            DELETE FROM users WHERE is_active = FALSE;
+        
+[2025-01-29T00:04:35.033+0000] {base.py:84} INFO - Retrieving connection 'postgres_conn'
+[2025-01-29T00:04:35.039+0000] {base.py:84} INFO - Retrieving connection 'postgres_conn'
+[2025-01-29T00:04:35.043+0000] {sql.py:553} INFO - Running statement: 
+            DELETE FROM users WHERE is_active = FALSE;
+        , parameters: None
+[2025-01-29T00:04:35.044+0000] {sql.py:562} INFO - Rows affected: 3
+[2025-01-29T00:04:35.053+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-29T00:04:35.054+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=executing_sql_pipeline, task_id=delete_values, run_id=manual__2025-01-29T00:04:32.762764+00:00, execution_date=20250129T000432, start_date=20250129T000434, end_date=20250129T000435
+[2025-01-29T00:04:35.102+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-01-29T00:04:35.119+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-01-29T00:04:35.124+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
