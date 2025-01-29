@@ -26,12 +26,12 @@ def task_c():
     print("TASK C has been executed!")
 
 
-with Dag(
+with DAG(
     dag_id = 'cron_catchup_backfill',
     description = 'Using crons, catchup, and backfill',
     default_args = default_args,
-    start_date = days_ago(5),
-    schedule_interval = '0 0 * * *',
+    start_date = days_ago(30),
+    schedule_interval = '0 */12 * * 6,0',
     catchup = True
 ) as dag:
 
