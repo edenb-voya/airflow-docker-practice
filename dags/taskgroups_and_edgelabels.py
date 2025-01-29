@@ -107,7 +107,7 @@ with DAG(
     tags = ['python', 'taskgroups', 'edgelabels', 'branching']
 ) as dag:
 
-    with TaskGroup('reading_and_preprocessing') as reading_and_preprocessing
+    with TaskGroup('reading_and_preprocessing') as reading_and_preprocessing:
 
         read_csv_file = PythonOperator(
             task_id = 'read_csv_file',
@@ -126,7 +126,7 @@ with DAG(
         python_callable = determine_branch
     )
 
-    with TaskGroup('filtering') as filtering
+    with TaskGroup('filtering') as filtering:
 
         filter_by_southwest = PythonOperator(
             task_id = 'filter_by_southwest',
