@@ -83,7 +83,7 @@ def groupby_region_smoker(ti):
         'charges': 'mean'
     }).reset_index()
 
-    region_df.to_csv(OUTPUT_PATH.format('grouped_by_region'), index=False)
+    region_df.to_csv(OUTPUT_PATH.format('ecb_conditional_grouped_by_region'), index=False)
 
     smoker_df = df.groupby('smoker').agg({
         'age': 'mean',
@@ -91,7 +91,7 @@ def groupby_region_smoker(ti):
         'charges': 'mean'
     }).reset_index()
 
-    smoker_df.to_csv(OUTPUT_PATH.format('grouped_by_smoker'), index=False)
+    smoker_df.to_csv(OUTPUT_PATH.format('ecb_grouped_by_smoker'), index=False)
 
 
 with DAG(
