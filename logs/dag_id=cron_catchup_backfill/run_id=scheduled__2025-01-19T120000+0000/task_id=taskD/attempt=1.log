@@ -1,0 +1,21 @@
+[2025-01-29T16:30:53.080+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-29T16:30:53.096+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cron_catchup_backfill.taskD scheduled__2025-01-19T12:00:00+00:00 [queued]>
+[2025-01-29T16:30:53.105+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cron_catchup_backfill.taskD scheduled__2025-01-19T12:00:00+00:00 [queued]>
+[2025-01-29T16:30:53.107+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-01-29T16:30:53.127+0000] {taskinstance.py:2889} INFO - Executing <Task(BashOperator): taskD> on 2025-01-19 12:00:00+00:00
+[2025-01-29T16:30:53.135+0000] {standard_task_runner.py:72} INFO - Started process 1929 to run task
+[2025-01-29T16:30:53.138+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'cron_catchup_backfill', 'taskD', 'scheduled__2025-01-19T12:00:00+00:00', '--job-id', '107', '--raw', '--subdir', 'DAGS_FOLDER/executing_cron_catchup_backfill.py', '--cfg-path', '/tmp/tmpoptu96p_']
+[2025-01-29T16:30:53.141+0000] {standard_task_runner.py:105} INFO - Job 107: Subtask taskD
+[2025-01-29T16:30:53.187+0000] {task_command.py:467} INFO - Running <TaskInstance: cron_catchup_backfill.taskD scheduled__2025-01-19T12:00:00+00:00 [running]> on host ef9d5dc750d2
+[2025-01-29T16:30:53.276+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cron_catchup_backfill' AIRFLOW_CTX_TASK_ID='taskD' AIRFLOW_CTX_EXECUTION_DATE='2025-01-19T12:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-01-19T12:00:00+00:00'
+[2025-01-29T16:30:53.277+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-29T16:30:53.289+0000] {subprocess.py:78} INFO - Tmp dir root location: /tmp
+[2025-01-29T16:30:53.291+0000] {subprocess.py:88} INFO - Running command: ['/usr/bin/bash', '-c', 'echo TASK D has executed!']
+[2025-01-29T16:30:53.302+0000] {subprocess.py:99} INFO - Output:
+[2025-01-29T16:30:53.304+0000] {subprocess.py:106} INFO - TASK D has executed!
+[2025-01-29T16:30:53.306+0000] {subprocess.py:110} INFO - Command exited with return code 0
+[2025-01-29T16:30:53.340+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-29T16:30:53.341+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=cron_catchup_backfill, task_id=taskD, run_id=scheduled__2025-01-19T12:00:00+00:00, execution_date=20250119T120000, start_date=20250129T163053, end_date=20250129T163053
+[2025-01-29T16:30:53.398+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-01-29T16:30:53.419+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-29T16:30:53.423+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
