@@ -1,0 +1,17 @@
+[2025-01-29T17:13:55.769+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-29T17:13:55.805+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cron_catchup_backfill.taskChoose backfill__2024-12-21T12:00:00+00:00 [queued]>
+[2025-01-29T17:13:55.822+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cron_catchup_backfill.taskChoose backfill__2024-12-21T12:00:00+00:00 [queued]>
+[2025-01-29T17:13:55.826+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-01-29T17:13:55.860+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): taskChoose> on 2024-12-21 12:00:00+00:00
+[2025-01-29T17:13:55.888+0000] {standard_task_runner.py:72} INFO - Started process 2940 to run task
+[2025-01-29T17:13:55.897+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'cron_catchup_backfill', 'taskChoose', 'backfill__2024-12-21T12:00:00+00:00', '--job-id', '197', '--pool', 'default_pool', '--raw', '--subdir', 'DAGS_FOLDER/executing_cron_catchup_backfill.py', '--cfg-path', '/tmp/tmpbcy3td_7']
+[2025-01-29T17:13:55.904+0000] {standard_task_runner.py:105} INFO - Job 197: Subtask taskChoose
+[2025-01-29T17:13:55.991+0000] {task_command.py:467} INFO - Running <TaskInstance: cron_catchup_backfill.taskChoose backfill__2024-12-21T12:00:00+00:00 [running]> on host ef9d5dc750d2
+[2025-01-29T17:13:56.140+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cron_catchup_backfill' AIRFLOW_CTX_TASK_ID='taskChoose' AIRFLOW_CTX_EXECUTION_DATE='2024-12-21T12:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='backfill__2024-12-21T12:00:00+00:00'
+[2025-01-29T17:13:56.144+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-29T17:13:56.174+0000] {python.py:240} INFO - Done. Returned value was: True
+[2025-01-29T17:13:56.225+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-29T17:13:56.226+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=cron_catchup_backfill, task_id=taskChoose, run_id=backfill__2024-12-21T12:00:00+00:00, execution_date=20241221T120000, start_date=20250129T171355, end_date=20250129T171356
+[2025-01-29T17:13:56.295+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-01-29T17:13:56.346+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-01-29T17:13:56.350+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
