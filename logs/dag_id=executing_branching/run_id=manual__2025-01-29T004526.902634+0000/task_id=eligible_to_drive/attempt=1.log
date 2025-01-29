@@ -1,0 +1,18 @@
+[2025-01-29T00:45:29.943+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-01-29T00:45:29.958+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: executing_branching.eligible_to_drive manual__2025-01-29T00:45:26.902634+00:00 [queued]>
+[2025-01-29T00:45:29.966+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: executing_branching.eligible_to_drive manual__2025-01-29T00:45:26.902634+00:00 [queued]>
+[2025-01-29T00:45:29.968+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-01-29T00:45:29.977+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): eligible_to_drive> on 2025-01-29 00:45:26.902634+00:00
+[2025-01-29T00:45:29.983+0000] {standard_task_runner.py:72} INFO - Started process 1965 to run task
+[2025-01-29T00:45:29.985+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'executing_branching', 'eligible_to_drive', 'manual__2025-01-29T00:45:26.902634+00:00', '--job-id', '41', '--raw', '--subdir', 'DAGS_FOLDER/executing_branching.py', '--cfg-path', '/tmp/tmpcicjweh9']
+[2025-01-29T00:45:29.987+0000] {standard_task_runner.py:105} INFO - Job 41: Subtask eligible_to_drive
+[2025-01-29T00:45:30.022+0000] {task_command.py:467} INFO - Running <TaskInstance: executing_branching.eligible_to_drive manual__2025-01-29T00:45:26.902634+00:00 [running]> on host 6b2a71fc0c6d
+[2025-01-29T00:45:30.091+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='executing_branching' AIRFLOW_CTX_TASK_ID='eligible_to_drive' AIRFLOW_CTX_EXECUTION_DATE='2025-01-29T00:45:26.902634+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-01-29T00:45:26.902634+00:00'
+[2025-01-29T00:45:30.093+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-01-29T00:45:30.105+0000] {logging_mixin.py:190} INFO - You can drive, you have a license!
+[2025-01-29T00:45:30.106+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-01-29T00:45:30.115+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-01-29T00:45:30.116+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=executing_branching, task_id=eligible_to_drive, run_id=manual__2025-01-29T00:45:26.902634+00:00, execution_date=20250129T004526, start_date=20250129T004529, end_date=20250129T004530
+[2025-01-29T00:45:30.160+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-01-29T00:45:30.171+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-01-29T00:45:30.175+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
