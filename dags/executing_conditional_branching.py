@@ -95,7 +95,7 @@ def groupby_region_smoker(ti):
 
 
 with DAG(
-    dag_id = 'executing_branching',
+    dag_id = 'executing_conditional_branching',
     description = 'Running branching pipelines',
     default_args = default_args,
     start_date = days_ago(1),
