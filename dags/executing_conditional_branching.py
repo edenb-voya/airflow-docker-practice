@@ -100,7 +100,7 @@ with DAG(
     default_args = default_args,
     start_date = days_ago(1),
     schedule_interval = '@once',
-    tags = ['branching', 'conditions']
+    tags = ['python', 'transform', 'pipeline', 'branching']
 ) as dag:
 
     read_csv_file = PythonOperator(
@@ -108,12 +108,12 @@ with DAG(
         python_callable = read_csv_file
     )
 
-    remove_null_values = BranchPythonOperator(
+    remove_null_values = PythonOperator(
         task_id = 'remove_null_values',
         python_callable = remove_null_values
     )
 
-    determine_branch = PythonOperator(
+    determine_branch = BranchPythonOperator(
         task_id = 'determine_branch',
         python_callable = determine_branch
     )
