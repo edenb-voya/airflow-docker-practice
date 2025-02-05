@@ -1,0 +1,17 @@
+[2025-02-05T17:49:44.606+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-05T17:49:44.655+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: cross_task_communication_taskflow.compute_total_and_average manual__2025-02-05T17:49:43.087021+00:00 [queued]>
+[2025-02-05T17:49:44.668+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: cross_task_communication_taskflow.compute_total_and_average manual__2025-02-05T17:49:43.087021+00:00 [queued]>
+[2025-02-05T17:49:44.671+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-02-05T17:49:44.694+0000] {taskinstance.py:2889} INFO - Executing <Task(_PythonDecoratedOperator): compute_total_and_average> on 2025-02-05 17:49:43.087021+00:00
+[2025-02-05T17:49:44.701+0000] {standard_task_runner.py:72} INFO - Started process 2487 to run task
+[2025-02-05T17:49:44.705+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'cross_task_communication_taskflow', 'compute_total_and_average', 'manual__2025-02-05T17:49:43.087021+00:00', '--job-id', '20', '--raw', '--subdir', 'DAGS_FOLDER/passing_data_with_taskflow.py', '--cfg-path', '/tmp/tmphzqy8kmr']
+[2025-02-05T17:49:44.708+0000] {standard_task_runner.py:105} INFO - Job 20: Subtask compute_total_and_average
+[2025-02-05T17:49:44.764+0000] {task_command.py:467} INFO - Running <TaskInstance: cross_task_communication_taskflow.compute_total_and_average manual__2025-02-05T17:49:43.087021+00:00 [running]> on host c3d37860668a
+[2025-02-05T17:49:44.870+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='cross_task_communication_taskflow' AIRFLOW_CTX_TASK_ID='compute_total_and_average' AIRFLOW_CTX_EXECUTION_DATE='2025-02-05T17:49:43.087021+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-05T17:49:43.087021+00:00'
+[2025-02-05T17:49:44.871+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-05T17:49:44.874+0000] {python.py:240} INFO - Done. Returned value was: {'total_price': 723.88, 'average_price': 144.776}
+[2025-02-05T17:49:44.907+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-05T17:49:44.909+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=cross_task_communication_taskflow, task_id=compute_total_and_average, run_id=manual__2025-02-05T17:49:43.087021+00:00, execution_date=20250205T174943, start_date=20250205T174944, end_date=20250205T174944
+[2025-02-05T17:49:44.960+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-05T17:49:44.988+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T17:49:44.998+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

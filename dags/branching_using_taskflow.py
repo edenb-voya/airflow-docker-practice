@@ -58,7 +58,7 @@ def branching_using_taskflow():
 
     def write_csv_result(ti):
 
-        json_data = ti.xcom_pull(key='transfrom_result')
+        json_data = ti.xcom_pull(key='transform_result')
         file_name = ti.xcom_pull(key='transform_filename')
 
         df = pd.read_json(json_data)
@@ -66,24 +66,24 @@ def branching_using_taskflow():
         df.to_csv('/opt/airflow/output/{0}.csv'.format(file_name), index=False)
 
     read_csv_file_task = PythonOperator(
-        task_id='read_csv_file_task',
-        python_callable=read_csv_file
+        task_id = 'read_csv_file_task',
+        python_callable = read_csv_file
     )
 
     filter_two_seaters_task = PythonOperator(
-        task_id='filter_two_seaters_task',
-        python_callable=filter_two_seaters
+        task_id = 'filter_two_seaters_task',
+        python_callable = filter_two_seaters
     )
 
     filter_fwds_task = PythonOperator(
-        task_id='filter_fwds_task',
-        python_callable=filter_fwds
+        task_id = 'filter_fwds_task',
+        python_callable = filter_fwds
     )
 
     write_csv_result_task = PythonOperator(
-        task_id='write_csv_result_task',
-        python_callable=write_csv_result,
-        trigger_rule='none_failed'
+        task_id = 'write_csv_result_task',
+        python_callable = write_csv_result,
+        trigger_rule = 'none_failed'
     )
 
     read_csv_file_task >> determine_branch() >> [
