@@ -11,7 +11,7 @@ default_args = {
 }
 
 @dag(
-    dag_id='branching_using_taskflow',
+    dag_id='branching_only_taskflow',
     description='Branching using taskflow',
     default_args=default_args,
     start_date=days_ago(1),
@@ -73,9 +73,9 @@ def branching_using_taskflow():
         df.to_csv('/opt/airflow/output/{0}.csv'.format(file_name), index=False)
 
 
-    read_csv_file_task() >> determine_branch() >> [
-        filter_two_seaters_task(),
-        filter_fwds_task()
-    ] >> write_csv_result_task()
+    read_csv_file() >> determine_branch() >> [
+        filter_two_seaters(),
+        filter_fwds()
+    ] >> write_csv_result()
 
 branching_using_taskflow()
