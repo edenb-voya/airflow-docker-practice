@@ -1,3 +1,4 @@
 {
-    "python.defaultInterpreterPath": "/home/airflow/.local/bin/python"
+    "python.defaultInterpreterPath": "/home/airflow/.local/bin/python",
+    "python.pythonPath": "/home/airflow/.local/bin/python"
 }
