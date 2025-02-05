@@ -1,0 +1,31 @@
+[2025-02-05T23:44:12.712+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-05T23:44:12.725+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: interoperating_with_taskflow.read_csv_file_task manual__2025-02-05T23:44:10.974780+00:00 [queued]>
+[2025-02-05T23:44:12.731+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: interoperating_with_taskflow.read_csv_file_task manual__2025-02-05T23:44:10.974780+00:00 [queued]>
+[2025-02-05T23:44:12.734+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-02-05T23:44:12.743+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): read_csv_file_task> on 2025-02-05 23:44:10.974780+00:00
+[2025-02-05T23:44:12.749+0000] {standard_task_runner.py:72} INFO - Started process 7068 to run task
+[2025-02-05T23:44:12.752+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'interoperating_with_taskflow', 'read_csv_file_task', 'manual__2025-02-05T23:44:10.974780+00:00', '--job-id', '54', '--raw', '--subdir', 'DAGS_FOLDER/interoperating_with_taskflow.py', '--cfg-path', '/tmp/tmpwmto7qvb']
+[2025-02-05T23:44:12.755+0000] {standard_task_runner.py:105} INFO - Job 54: Subtask read_csv_file_task
+[2025-02-05T23:44:12.793+0000] {task_command.py:467} INFO - Running <TaskInstance: interoperating_with_taskflow.read_csv_file_task manual__2025-02-05T23:44:10.974780+00:00 [running]> on host c3d37860668a
+[2025-02-05T23:44:13.094+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='interoperating_with_taskflow' AIRFLOW_CTX_TASK_ID='read_csv_file_task' AIRFLOW_CTX_EXECUTION_DATE='2025-02-05T23:44:10.974780+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-02-05T23:44:10.974780+00:00'
+[2025-02-05T23:44:13.098+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-05T23:44:13.148+0000] {logging_mixin.py:190} INFO -            Brand                            Model  ...  Seats  PriceEuro
+0         Tesla     Model 3 Long Range Dual Motor  ...      5      55480
+1    Volkswagen                         ID.3 Pure  ...      5      30000
+2      Polestar                                 2  ...      5      56440
+3           BMW                              iX3   ...      5      68040
+4         Honda                                e   ...      4      32997
+..           ...                              ...  ...    ...        ...
+98       Nissan                       Ariya 63kWh  ...      5      45000
+99         Audi     e-tron S Sportback 55 quattro  ...      5      96050
+100      Nissan               Ariya e-4ORCE 63kWh  ...      5      50000
+101      Nissan   Ariya e-4ORCE 87kWh Performance  ...      5      65000
+102       Byton                 M-Byte 95 kWh 2WD  ...      5      62000
+
+[103 rows x 14 columns]
+[2025-02-05T23:44:13.172+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-02-05T23:44:13.186+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-05T23:44:13.188+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=interoperating_with_taskflow, task_id=read_csv_file_task, run_id=manual__2025-02-05T23:44:10.974780+00:00, execution_date=20250205T234410, start_date=20250205T234412, end_date=20250205T234413
+[2025-02-05T23:44:13.248+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-05T23:44:13.294+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T23:44:13.300+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

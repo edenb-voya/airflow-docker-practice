@@ -1,0 +1,20 @@
+[2025-02-05T23:37:43.252+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-05T23:37:43.278+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: interoperating_with_taskflow.filter_teslas scheduled__2025-02-04T00:00:00+00:00 [queued]>
+[2025-02-05T23:37:43.292+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: interoperating_with_taskflow.filter_teslas scheduled__2025-02-04T00:00:00+00:00 [queued]>
+[2025-02-05T23:37:43.295+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-02-05T23:37:43.314+0000] {taskinstance.py:2889} INFO - Executing <Task(_PythonDecoratedOperator): filter_teslas> on 2025-02-04 00:00:00+00:00
+[2025-02-05T23:37:43.321+0000] {standard_task_runner.py:72} INFO - Started process 6951 to run task
+[2025-02-05T23:37:43.324+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'interoperating_with_taskflow', 'filter_teslas', 'scheduled__2025-02-04T00:00:00+00:00', '--job-id', '46', '--raw', '--subdir', 'DAGS_FOLDER/interoperating_with_taskflow.py', '--cfg-path', '/tmp/tmppcq_ifda']
+[2025-02-05T23:37:43.328+0000] {standard_task_runner.py:105} INFO - Job 46: Subtask filter_teslas
+[2025-02-05T23:37:43.389+0000] {task_command.py:467} INFO - Running <TaskInstance: interoperating_with_taskflow.filter_teslas scheduled__2025-02-04T00:00:00+00:00 [running]> on host c3d37860668a
+[2025-02-05T23:37:43.678+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='interoperating_with_taskflow' AIRFLOW_CTX_TASK_ID='filter_teslas' AIRFLOW_CTX_EXECUTION_DATE='2025-02-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-02-04T00:00:00+00:00'
+[2025-02-05T23:37:43.680+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-05T23:37:43.686+0000] {warnings.py:110} WARNING - /opt/***/dags/interoperating_with_taskflow.py:33: FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+  df = pd.read_json(json_data)
+
+[2025-02-05T23:37:43.699+0000] {python.py:240} INFO - Done. Returned value was: {"Brand":{},"Model":{},"AccelSec":{},"TopSpeed_KmH":{},"Range_Km":{},"Efficiency_WhKm":{},"FastCharge_KmH":{},"RapidCharge":{},"PowerTrain":{},"PlugType":{},"BodyStyle":{},"Segment":{},"Seats":{},"PriceEuro":{}}
+[2025-02-05T23:37:43.736+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-05T23:37:43.737+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=interoperating_with_taskflow, task_id=filter_teslas, run_id=scheduled__2025-02-04T00:00:00+00:00, execution_date=20250204T000000, start_date=20250205T233743, end_date=20250205T233743
+[2025-02-05T23:37:43.822+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-05T23:37:43.851+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T23:37:43.884+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

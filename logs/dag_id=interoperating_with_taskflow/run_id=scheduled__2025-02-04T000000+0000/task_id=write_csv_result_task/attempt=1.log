@@ -1,0 +1,20 @@
+[2025-02-05T23:37:45.604+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-05T23:37:45.623+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: interoperating_with_taskflow.write_csv_result_task scheduled__2025-02-04T00:00:00+00:00 [queued]>
+[2025-02-05T23:37:45.634+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: interoperating_with_taskflow.write_csv_result_task scheduled__2025-02-04T00:00:00+00:00 [queued]>
+[2025-02-05T23:37:45.636+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-02-05T23:37:45.656+0000] {taskinstance.py:2889} INFO - Executing <Task(PythonOperator): write_csv_result_task> on 2025-02-04 00:00:00+00:00
+[2025-02-05T23:37:45.664+0000] {standard_task_runner.py:72} INFO - Started process 6955 to run task
+[2025-02-05T23:37:45.667+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'interoperating_with_taskflow', 'write_csv_result_task', 'scheduled__2025-02-04T00:00:00+00:00', '--job-id', '47', '--raw', '--subdir', 'DAGS_FOLDER/interoperating_with_taskflow.py', '--cfg-path', '/tmp/tmpp1ucrpmp']
+[2025-02-05T23:37:45.670+0000] {standard_task_runner.py:105} INFO - Job 47: Subtask write_csv_result_task
+[2025-02-05T23:37:45.718+0000] {task_command.py:467} INFO - Running <TaskInstance: interoperating_with_taskflow.write_csv_result_task scheduled__2025-02-04T00:00:00+00:00 [running]> on host c3d37860668a
+[2025-02-05T23:37:46.009+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='interoperating_with_taskflow' AIRFLOW_CTX_TASK_ID='write_csv_result_task' AIRFLOW_CTX_EXECUTION_DATE='2025-02-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-02-04T00:00:00+00:00'
+[2025-02-05T23:37:46.013+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-05T23:37:46.025+0000] {warnings.py:110} WARNING - /opt/***/dags/interoperating_with_taskflow.py:40: FutureWarning: Passing literal json to 'read_json' is deprecated and will be removed in a future version. To read from a literal string, wrap it in a 'StringIO' object.
+  df = pd.read_json(filtered_teslas_json)
+
+[2025-02-05T23:37:46.049+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-02-05T23:37:46.062+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-05T23:37:46.065+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=interoperating_with_taskflow, task_id=write_csv_result_task, run_id=scheduled__2025-02-04T00:00:00+00:00, execution_date=20250204T000000, start_date=20250205T233745, end_date=20250205T233746
+[2025-02-05T23:37:46.125+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-05T23:37:46.147+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T23:37:46.151+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

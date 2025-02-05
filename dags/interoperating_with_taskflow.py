@@ -21,37 +21,37 @@ default_args = {
 
 def interoperating_with_taskflow():
 
-    def read_csv_file():
+    def read_csv_file(ti):
         df = pd.read_csv('/opt/airflow/datasets/car_data.csv')
 
         print(df)
 
-        return df.to_json()
+        ti.xcom_push(key='original_data', value=df.to_json())
     
     @task
     def filter_teslas(json_data):
         df = pd.read_json(json_data)
 
-        tesla_df = df[df['Brand'] == 'Tesla']
+        tesla_df = df[df['Brand'] == 'Tesla ']
 
         return tesla_df.to_json()
 
     def write_csv_result(filtered_teslas_json):
         df = pd.read_json(filtered_teslas_json)
 
-        df.to_csv('/opt/airflow/datasets/teslas.csv', index=False)
+        df.to_csv('/opt/airflow/output/teslas.csv', index=False)
 
     read_csv_file_task = PythonOperator(
         task_id='read_csv_file_task',
         python_callable=read_csv_file
     )
 
-    filtered_teslas_json = filter_teslas(read_csv_file_task.output)
+    filtered_teslas_json = filter_teslas(read_csv_file_task.output['original_data'])
 
     write_csv_result_task = PythonOperator(
         task_id='write_csv_result_task',
         python_callable=write_csv_result,
-        op_kwargs={'filtered_teslas_json': filtered_teslas_json.output}
+        op_kwargs = {'filtered_teslas_json': filtered_teslas_json}
     )
 
 interoperating_with_taskflow()

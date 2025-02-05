@@ -18,7 +18,7 @@ default_args = {
     schedule_interval='@once',
     tags=['branching', 'python', 'taskflow']
 )
-def branching_using_taskflow():
+def branching_only_taskflow():
 
     @task(task_id='read_csv_file_task')
     def read_csv_file():
@@ -78,4 +78,4 @@ def branching_using_taskflow():
         filter_fwds()
     ] >> write_csv_result()
 
-branching_using_taskflow()
+branching_only_taskflow()

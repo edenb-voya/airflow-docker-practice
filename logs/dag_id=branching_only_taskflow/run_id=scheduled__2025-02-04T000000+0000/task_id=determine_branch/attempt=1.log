@@ -1,0 +1,20 @@
+[2025-02-05T23:16:35.232+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-05T23:16:35.252+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: branching_only_taskflow.determine_branch scheduled__2025-02-04T00:00:00+00:00 [queued]>
+[2025-02-05T23:16:35.266+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: branching_only_taskflow.determine_branch scheduled__2025-02-04T00:00:00+00:00 [queued]>
+[2025-02-05T23:16:35.270+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2025-02-05T23:16:35.292+0000] {taskinstance.py:2889} INFO - Executing <Task(_BranchPythonDecoratedOperator): determine_branch> on 2025-02-04 00:00:00+00:00
+[2025-02-05T23:16:35.302+0000] {standard_task_runner.py:72} INFO - Started process 6661 to run task
+[2025-02-05T23:16:35.305+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'branching_only_taskflow', 'determine_branch', 'scheduled__2025-02-04T00:00:00+00:00', '--job-id', '42', '--raw', '--subdir', 'DAGS_FOLDER/branching_only_taskflow.py', '--cfg-path', '/tmp/tmp3bquai05']
+[2025-02-05T23:16:35.309+0000] {standard_task_runner.py:105} INFO - Job 42: Subtask determine_branch
+[2025-02-05T23:16:35.387+0000] {task_command.py:467} INFO - Running <TaskInstance: branching_only_taskflow.determine_branch scheduled__2025-02-04T00:00:00+00:00 [running]> on host c3d37860668a
+[2025-02-05T23:16:35.687+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='branching_only_taskflow' AIRFLOW_CTX_TASK_ID='determine_branch' AIRFLOW_CTX_EXECUTION_DATE='2025-02-04T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-02-04T00:00:00+00:00'
+[2025-02-05T23:16:35.691+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-02-05T23:16:35.702+0000] {python.py:240} INFO - Done. Returned value was: filter_two_seaters_task
+[2025-02-05T23:16:35.704+0000] {branch.py:38} INFO - Branch into filter_two_seaters_task
+[2025-02-05T23:16:35.705+0000] {skipmixin.py:230} INFO - Following branch ('filter_two_seaters_task',)
+[2025-02-05T23:16:35.718+0000] {skipmixin.py:278} INFO - Skipping tasks [('filter_fwds_task', -1)]
+[2025-02-05T23:16:35.751+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-02-05T23:16:35.752+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=branching_only_taskflow, task_id=determine_branch, run_id=scheduled__2025-02-04T00:00:00+00:00, execution_date=20250204T000000, start_date=20250205T231635, end_date=20250205T231635
+[2025-02-05T23:16:35.805+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-05T23:16:35.848+0000] {taskinstance.py:3895} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-02-05T23:16:35.854+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
