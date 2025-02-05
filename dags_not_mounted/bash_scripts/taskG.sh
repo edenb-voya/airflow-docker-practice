@@ -1,1 +1,0 @@
-echo TASK G completed!

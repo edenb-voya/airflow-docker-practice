@@ -39,6 +39,6 @@ def dag_with_taskflow_api():
     def task_e():
         print("Task E executed!")
 
-    task_a() >> [task_b(), task_c(), task_d()] >> task_3
+    task_a() >> [task_b(), task_c(), task_d()] >> task_e()
 
 dag_with_taskflow_api()
