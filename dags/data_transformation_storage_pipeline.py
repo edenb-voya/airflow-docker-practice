@@ -1,11 +1,12 @@
 from airflow.models import Variable
 from datetime import datetime, timedelta
+from airflow.models import Variable
 
 import pandas as pd
 import json
 import csv
 
-from airflow.operators.postgres_operator import PostgresOperator
+from airflow.providers.postgres.operators.postgres import PostgresOperator
 
 from airflow.utils.dates import days_ago
 from airflow.decorators import dag, task
@@ -54,13 +55,13 @@ def data_transformation_storage_pipeline():
 
         df = pd.read_json(json_data)
 
-        df = df[['Brand', 'Model', 'Bodystyle', 'Seats', 'PriceEuro']]
+        df = df[['Brand', 'Model', 'BodyStyle', 'Seats', 'PriceEuro']]
 
         df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
 
         insert_query = """
             INSERT INTO car_data (brand, model, body_style, seat, price)
-            VALUES (?, ?, ?, ?, ?)
+            VALUES (%s, %s, %s, %s, %s)
         """
 
         parameters = df.to_dict(orient='records')
